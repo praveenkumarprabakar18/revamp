@@ -1,0 +1,128 @@
+SQL Revamp:
+
+SELECT first_name, last_name, gender from patients where gender="M"; 
+
+select * from patients; 
+
+select 
+	first_name, 
+    last_name 
+from 
+	patients 
+where 
+	allergies is NULL; 
+    
+select 
+	first_name 
+from 
+	patients 
+where 
+	first_name like "C%"; 
+    
+    
+select
+	first_name,
+    last_name
+from
+	patients
+where
+	weight>=100 and weight<=120;
+    
+select
+	first_name,
+    last_name
+from
+	patients
+where
+	weight between 100 and 200; 
+    
+
+update 
+	patients
+set
+	allergies = "NKA"
+where
+	allergies is null; 
+    
+select 
+	concat (first_name, " ", last_name) as full_name
+from
+	patients; 
+    
+
+select first_name || " " || last_name as full_name
+from
+	patients; 
+ 
+select first_name, last_name, province_name
+from	
+patients as p
+left join 
+province_names as n
+on
+p.province_id = n.province_id; 
+
+select first_name, last_name, province_name
+from	
+(
+  select first_name, last_name, province_id
+  from
+  patients
+  )a
+  left join
+  (
+    select province_name, province_id
+    from
+    province_names
+    )b
+    on a.province_id = b.province_id; 
+    
+    
+select
+	count(patient_id) as total_patients
+from
+	patients
+where
+year(birth_date) = 2010; 
+
+select
+	first_name, last_name, height
+from
+	patients
+order by height desc
+	
+limit 1; 
+
+
+select
+	first_name,
+    last_name,
+    height
+from
+	patients
+where
+	height = (select max(height) from patients); 
+    
+    
+select
+	* 
+from
+	patients
+where
+	patient_id in (1,45,534,879,1000); 
+    
+select count(*) as total_admissions
+from	
+admissions;
+
+select
+	* 
+from
+	admissions
+where admission_date = discharge_date; 
+
+
+
+
+
+Predictive Analytics Revamp:
