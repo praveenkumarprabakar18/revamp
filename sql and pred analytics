@@ -122,6 +122,42 @@ from
 where admission_date = discharge_date; 
 
 
+select
+    patient_id, count(patient_id)
+from
+	admissions
+where
+	patient_id = 579; 
+
+select distinct year(birth_date) as birth_year
+from
+patients
+order by birth_year; 
+
+
+select year(birth_date) as birth_year
+from
+patients
+group by year(birth_date); 
+
+select distinct first_name
+from
+(
+  select first_name, count(first_name) as count_first
+  from
+  patients
+  group by
+  first_name
+  )
+where count_first = 1; 
+
+select first_name
+from
+patients
+group by first_name
+having count(first_name) =1; */
+
+
 
 
 
