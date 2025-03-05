@@ -157,7 +157,72 @@ patients
 group by first_name
 having count(first_name) =1; */
 
+/*SELECT distinct year(birth_date) as birth_year FROM patients
+order by birth_year; 
 
+select first_name 
+from
+
+(
+  select first_name, count(*) as freq
+  from
+  patients
+  group by
+  first_name
+  )
+  where freq<2;
+  
+  select patient_id, first_name
+  from
+  patients
+  where
+  first_name like "s%" and first_name like "%s"
+  and length(first_name)>=6;  
+  
+  select p.patient_id, p.first_name, p.last_name
+  from
+  (
+  select * from patients
+  )p
+  left join
+  (
+    select * from admissions
+    )a
+  on p.patient_id = a.patient_id
+  where
+  a.diagnosis = "Dementia"; 
+  
+  select
+  	first_name
+  from
+  	(
+      select first_name, length(first_name) as len_s
+      from
+      patients
+      )
+      order by len_s, first_name; */
+  
+  
+  
+  
+  
+
+
+
+
+
+/*
+  Start by selecting a question by pressing 'Start' or 'View All Questions'.
+  Use the resources and information about the database from the left panel to help.
+  Press the run button to execute the query.
+  Question is automatically validated every time you execute the query.
+  Make your output match the expected output.
+ 
+ 
+  Keybinds:
+    [ctrl + enter]: Execute the SQL
+    [ctrl + q]: Auto-format the SQL
+*/
 
 
 
